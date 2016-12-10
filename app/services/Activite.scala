@@ -2,10 +2,11 @@ package services
 
 import anorm._
 import play.api.db.DB
+import javax.inject.Singleton
 
 /** Activité */
 trait Activite {
-  def emailStored(): Boolean
+  def emailStored(pEmail: String): Boolean
 }
 
 /** implémentation */
@@ -18,5 +19,5 @@ class ActiviteImpl extends Activite {
   .on("courriel" -> pEmail).execute()
 }*/
   
-  override def emailStored(pEmail: String): Boolean = atomicCounter.getAndIncrement()
+  override def emailStored(pEmail: String): Boolean = true
 }
