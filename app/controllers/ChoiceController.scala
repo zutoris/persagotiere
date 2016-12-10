@@ -11,10 +11,10 @@ import play.api.mvc._
 @Singleton
 class ChoiceController @Inject() extends Controller {
 
-  def choice = Action {
+  def choice(email: String) = Action {
     // interroger la BDD
     // si email exite, choix déjà fait
-    Ok(views.html.viewChoice("Voici ce que vous avez sélectionné :"))
+    Ok(views.html.viewChoice("Voici ce que vous avez sélectionné :"+email))
     // sinon
     Ok(views.html.makeChoice("Faites un choix."))
   }
